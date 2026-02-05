@@ -1,43 +1,169 @@
-/* Reset */
+/* ==========================================================================
+    [Table of contents]
+
+    1. BASE
+        1.1 Page Rendering Defaults
+        1.2 Core Styling
+        1.3 Typography
+    2. LAYOUT
+        2.1 Core Layout
+        2.2 Small only
+        2.3 medium and up
+        2.4 Medium only
+        2.5 large screens and up
+        2.6 Large only
+    3. MODULES
+    4. STATES
+    5. THEME
+    6. UTILITY classes
+    7. PRINT
+
+    refer to http://smacss.com/
+    ========================================================================== */
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+/* 1.1 Page Rendering Defaults */
+
+/* 1.1 Page Rendering Defaults - Set default colors, font size, and line height */
+html {
+    color: #222;
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/* Text selection styling - light blue background for selected text */
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/* Cross-browser text selection color */
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/* Horizontal line styling - reset default styles */
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/* Media elements alignment - vertically center images, videos, iframes, SVGs, canvas */
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+/* Fieldset reset - remove default borders and spacing */
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Textarea resize control - allow only vertical resizing */
+textarea {
+    resize: vertical;
+}
+
+/* 1.2 Core Styling - Universal box-sizing and layout */
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+/* 1.3 Typography - Default heading and paragraph styles */
+
+/* Heading elements - Ubuntu font, centered, no margin */
+h1,
+h2,
+h4,
+h5,
+h6 {
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    text-align: center;
+    margin: 0;
+}
+
+/* Heading 1 - Large main title */
+h1 {
+    font-size: 2.125rem;
+    margin: 2rem 0 6rem;
+    color: #3b3b3b;
+}
+
+/* Heading 2 - Section titles */
+h2 {
+    font-size: 1.75rem;
+    color: #494949;
+    margin: 1rem 0 0;
+}
+
+/* Heading 4 - Smaller section titles */
+h4 {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Paragraphs - Open Sans font for readability */
+p {
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+}
+
+
+
+/* Reset all default margins, padding, and set border-box model */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Base body styles */
 body {
     font-family: Arial, sans-serif;
-
 }
 
+/* Main container with max-width constraint and centered layout */
 .container {
-    max-width: 1280px;
+    max-width: 80rem;
     margin: 0 auto;
     width: 100%;
-    padding: 0px 50px;
+    padding: 0 3.125rem;
 }
 
+/* ==================== HEADER & NAVIGATION ==================== */
 
-
-
-
-/* Desktop - Menu ngang bên phải */
+/* Header: horizontal menu layout on the right side (desktop) */
 .header {
     display: flex;
     background: white;
     align-items: flex-end;
-    max-width: 1280px;
+    max-width: 80rem;
     margin: 0 auto;
     width: 100%;
-    padding: 0px 50px;
+    padding: 0 3.125rem;
     justify-content: space-between;
-    margin: 0 auto;
 }
 
+/* Logo styling */
 .logo {
-    font-size: 28px;
+    font-size: 1.75rem;
     font-weight: 600;
-
     color: #4a5568;
     text-decoration: none;
     background: white;
@@ -47,6 +173,7 @@ body {
     color: #4a5568;
 }
 
+/* Main navigation menu - flex layout for horizontal alignment */
 .nav-menu {
     display: flex;
     list-style: none;
@@ -58,78 +185,75 @@ body {
     position: relative;
 }
 
+/* Navigation links styling with padding and transitions */
 .nav-menu li a {
     display: flex;
-    /* quan trọng */
-    align-items: flex-end;
-    /* đẩy xuống đáy */
-    justify-content: flex-start;
-    /* đẩy sang trái */
-    padding: 40px 40px 15px 15px;
-    /* padding trên, phải, dưới, trái */
+    align-items: flex-end; /* Align to bottom */
+    justify-content: flex-start; /* Align to left */
+    padding: 40px 40px 15px 15px; /* top, right, bottom, left */
     text-decoration: none;
     color: white;
     font-size: 15px;
-    font-weight: bold;
+        font-family: "Ubuntu", sans-serif;
+
     transition: opacity 0.3s;
     white-space: nowrap;
 }
 
+/* Hover state for navigation links */
 .nav-menu li a:hover {
     background-color: #F0F08C !important;
     color: #0057C2;
 }
 
-/* Màu sắc cho từng menu item */
+/* Color scheme for each menu item */
+/* Item 1 - Green */
 .nav-menu li:nth-child(1) a {
     background: #2ecc71;
 }
 
-/* Home - xanh lá */
+/* Item 2 - Yellow */
 .nav-menu li:nth-child(2) a {
     background: #f1c40f;
 }
 
-/* Portfolio - vàng */
+/* Item 3 - Red */
 .nav-menu li:nth-child(3) a {
     background: #e74c3c;
 }
 
-/* Blog - đỏ */
+/* Item 4 - Blue */
 .nav-menu li:nth-child(4) a {
     background: #3498db;
 }
 
-/* Quo Vadis - xanh dương */
+/* Item 5 - Dark Blue */
 .nav-menu li:nth-child(5) a {
     background: #34495e;
 }
 
-/* Let's Chat - xanh đậm */
-
-/* Dropdown arrow */
+/* Dropdown arrow indicator */
 .nav-menu li.has-dropdown>a::after {
     content: '>';
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 400;
-    margin-left: 5px;
+    margin-left: 0.3125rem;
 }
 
-/* Tablet - Menu chạy xuống dưới logo */
+
+/* ==================== RESPONSIVE - TABLET ==================== */
+
+/* Tablet: Menu flows vertically below logo */
 @media (max-width: 1024px) {
     .header {
         flex-direction: column;
         align-items: stretch;
-    }
-
-    .header {
-        padding: 0px 0px !important;
-
+        padding: 0;
     }
 
     .logo {
-        text-align: center;
-        padding: 20px;
+        text-align: left;
+        padding: 1.25rem;
         border-bottom: 1px solid #e2e8f0;
     }
 
@@ -143,95 +267,88 @@ body {
 
     .nav-menu li a {
         text-align: center;
-        padding: 20px 15px;
-        font-size: 14px;
+        padding: 1.25rem 0.9375rem;
+        font-size: 0.875rem;
     }
 
     .container {
-        padding: 0px 20px !important;
+        padding: 0 1.25rem !important;
     }
 
     .hero-outer {
-        padding: 0px 0px !important;
+        padding: 0 !important;
     }
 }
 
-/* Mobile - Ẩn menu */
-@media (max-width: 768px) {
+/* ==================== RESPONSIVE - MOBILE ==================== */
+
+/* Mobile: Hide menu */
+@media (max-width: 760px) {
     .nav-menu {
         display: none;
     }
 
     .logo {
-        font-size: 22px;
-        padding: 18px 20px;
+        font-size: 1.375rem;
+        padding: 1.125rem 1.25rem;
     }
-
 }
 
+/* ==================== HERO SECTION ==================== */
 
-/* Hero - full bleed background */
+/* Hero outer wrapper with background color */
 .hero-outer {
-    padding: 0px 50px;
+    padding: 0 3.125rem;
     background: #EBEBEB;
-    /* fallback color */
 }
 
+/* Main hero container with background image and centered content */
 .hero {
     position: relative;
-    max-width: 1180px;
-    /* hoặc 1200px tùy thiết kế */
-
-    height: 380px;
-    /* chiều cao mong muốn */
+    max-width: 73.75rem;
+    height: 23.75rem;
     margin: 0 auto;
-    /* căn giữa nội dung */
     background: url("../img/Banner.png") center/cover no-repeat;
     display: flex;
     align-items: center;
 }
 
-/* Nội dung text - giới hạn chiều rộng, nằm trong max-width */
+/* Hero text content wrapper with max-width constraint */
 .hero-content {
     width: 100%;
-    max-width: 1100px;
-    /* nhỏ hơn max-width của .hero một chút */
-    padding: 0 20px;
+    max-width: 68.75rem;
+    padding: 0 1.25rem;
     box-sizing: border-box;
 }
 
+/* Flex container for hero text with gap between elements */
 .hero-text {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 0.75rem;
 }
 
-/* Tag kiểu Metro */
+/* Metro-style tag with colored left border */
 .tag {
     position: relative;
     display: inline-block;
-    padding: 12px 18px 12px 22px;
-    /* chừa chỗ cho thanh màu bên trái */
-    font-weight: 600;
-    font-size: 26px;
+    padding: 0.75rem 1.125rem 0.75rem 1.375rem;
+    font-size: 1.2rem;
     line-height: 1.3;
     width: fit-content;
     background: rgba(255, 255, 255, 0.88);
     color: #222;
     backdrop-filter: blur(3px);
-    border-radius: 3px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
 
+/* Colored left border for tags */
 .tag::before {
     content: "";
     position: absolute;
     left: 0;
     top: 0;
-    width: 6px;
+    width: 0.375rem;
     height: 100%;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
 }
 
 .tag-blue::before {
@@ -246,52 +363,51 @@ body {
     background: #f1c40f;
 }
 
-/* Nút prev/next - lòi ra ngoài ảnh */
+/* Previous/Next navigation buttons - positioned outside image */
 .hero-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 40px;
-    height: 40px;
+    width: 2.5rem;
+    height: 2.5rem;
     background: rgba(217, 217, 217, 0.64);
-    border: 4px solid rgba(109, 109, 109, 0.18);
+    border: 0.25rem solid rgba(109, 109, 109, 0.18);
     border-radius: 50%;
-    font-size: 20px;
+    font-size: 1.25rem;
     cursor: pointer;
     color: rgba(0, 0, 0, 0.18);
     transition: all 0.2s;
     z-index: 10;
 }
 
-
 .hero-btn--left {
-    left: -55px;
+    left: -3.4375rem;
 }
 
 .hero-btn--right {
-    right: -55px;
+    right: -3.4375rem;
 }
 
-/* ================= TABLET ================= */
-@media (max-width: 1350px) and (min-width: 769px) {
+/* ==================== HERO RESPONSIVE - TABLET ==================== */
 
+@media (max-width: 1350px) and (min-width: 769px) {
     .hero-content {
-        /* nhỏ hơn max-width của .hero một chút */
-        padding: 0 100px;
+        padding: 0 6.25rem;
     }
 
+    /* Convert buttons to vertical bars on sides */
     .hero-btn {
         top: 0;
         transform: none;
         height: 100%;
-        width: 30px;
+        width: 1.875rem;
         border-radius: 0;
         border: none;
         background: rgba(200, 200, 200);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 20px;
+        font-size: 1.25rem;
         color: rgba(0, 0, 0, 0.25);
     }
 
@@ -302,66 +418,103 @@ body {
     .hero-btn--right {
         right: 0;
     }
-
-    
 }
 
+/* ==================== HERO RESPONSIVE - MOBILE ==================== */
 
-/* ================= MOBILE ================= */
-@media (max-width: 768px) {
+@media (max-width: 760px) {
     .hero-outer {
         display: none;
     }
 }
 
 
+/* ==================== ABOUT SECTION ==================== */
 
-.about{
- text-align: center;
+.about {
+    text-align: center;
 }
 
-/* Title */
+/* About section title */
 .about-title {
-    font-size: 28px;
+    font-size: 1.75rem;
     line-height: 1.6;
-    padding: 60px 0px;
     color: #444;
     font-weight: 500;
 }
 
+/* Highlight color for section title */
 .about-title span {
     color: #29a9e1;
     font-weight: 700;
 }
 
+/* ==================== SERVICES SECTION ==================== */
 
-/* SERVICES GRID */
+/* Services grid layout - 4 columns on desktop */
 .services {
     display: grid;
-    padding: 60px 0;
+    padding: 3.75rem 0;
     grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+    gap: 2.5rem;
 }
 
-/* Tablet */
+/* Service item heading */
+.service h3 {
+    margin-top: 0.9375rem;
+}
+
+/* Service item description text */
+.service p {
+    margin-top: 0.3125rem;
+    text-align: justify;
+}
+
+/* Icon box styling with colored borders */
+.icon {
+    width: 4.375rem;
+    height: 4.375rem;
+    margin: 0 auto;
+    border: 3px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+}
+
+.icon img {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
+}
+
+/* Icon color variations */
+.icon.yellow { border-color: #FEB902; color: #FEB902; }
+.icon.green  { border-color: #25C389; color: #25C389; }
+.icon.red    { border-color: #DE6262; color: #DE6262; }
+.icon.blue   { border-color: #1596BD; color: #1596BD; }
+
+/* ==================== SERVICES RESPONSIVE - TABLET ==================== */
+
 @media (max-width: 1024px) {
     .services {
         grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
+        gap: 1.875rem;
     }
 }
 
-/* Mobile */
-@media (max-width: 768px) {
+/* ==================== SERVICES RESPONSIVE - MOBILE ==================== */
+
+@media (max-width: 760px) {
     .services {
         grid-template-columns: 1fr;
-        gap: 25px;
+        gap: 1.5625rem;
     }
 
     .service {
         display: flex;
         align-items: flex-start;
-        gap: 18px;
+        gap: 1.125rem;
         justify-content: center;
         text-align: left;
     }
@@ -372,263 +525,531 @@ body {
     }
 
     .icon {
-        width: 60px;
-        height: 60px;
+        width: 3.75rem;
+        height: 3.75rem;
         flex-shrink: 0;
     }
 }
 
-.service h3 {
-    margin-top: 15px;
-}
+/* ==================== POSTS/BLOG SECTION ==================== */
 
-.service p {
-    margin-top: 5px;
-}
-
-/* Icon box */
-.icon {
-    width: 70px;
-    height: 70px;
-    margin: 0 auto;
-    border: 3px solid;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 2px;
-}
-.icon img {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-}
-
-.icon.yellow { border-color: #FEB902; color: #FEB902; }
-.icon.green  { border-color: #25C389; color: #25C389; }
-.icon.red    { border-color: #DE6262; color: #DE6262; }
-.icon.blue   { border-color: #1596BD; color: #1596BD; }
-
-
-/*===========POST============*/
+/* Latest posts section header */
 .latest {
     text-align: center;
-    padding-top: 80px;
+    padding-top: 5rem;
 }
 
 .latest h2 {
-    font-size: 34px;
+    font-size: 2.125rem;
 }
 
+/* Subtitle styling */
 .sub {
     color: #777;
-    margin-bottom: 50px;
+    margin-bottom: 3.125rem;
 }
 
+/* Posts grid - 3 columns on desktop */
 .posts {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 1.875rem;
 }
+
+/* Individual post card */
 .post {
     background: white;
     text-align: left;
 }
 
+/* Post image container with overflow hidden for border-radius */
 .post-img {
     position: relative;
     overflow: hidden;
-    max-height: 400px;
+    max-height: 25rem;
 }
 
 .post-img img {
     width: 100%;
     display: block;
-    border-radius: 2px 2px 0px 0px;
+    border-radius: 2px 2px 0 0;
     transition: transform 0.4s;
 }
 
-
-/* Date badge */
+/* Date badge in top-left corner */
 .date {
     position: absolute;
-    top: 0px;
-    left: 0px;
-
-    border-radius: 2px 0px 0px 0px;
+    top: 0;
+    left: 0;
+    border-radius: 2px 0 0 0;
     background: #d85c5c;
     color: white;
-    padding: 8px 10px;
+    padding: 0.5rem 0.625rem;
     text-align: center;
-    font-size: 12px;
+    font-size: 0.75rem;
 }
 
 .day {
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: bold;
     display: block;
 }
 
-/* Blue info bar */
+/* Post info bar with blue background */
 .post-info {
     background: #3bb3da;
     color: white;
-    padding: 10px 18px;
+    padding: 0.625rem 1.125rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    border-radius: 0px 0px 2px 2px;
+    border-radius: 0 0 2px 2px;
 }
 
 .post-info h4 {
     margin: 0;
-    font-size: 15px;
+    font-size: 0.9375rem;
 }
 
 .post-info span {
-    font-size: 12px;
+    font-size: 0.75rem;
 }
 
+/* Icon box in post info */
 .square {
-    width: 30px;
-    height: 30px;
-    background: rgba(0,0,0,0.15);
+    width: 1.875rem;
+    height: 1.875rem;
+    background: rgba(0, 0, 0, 0.15);
 }
+
+/* ==================== POSTS RESPONSIVE - TABLET ==================== */
+
 @media (max-width: 1024px) {
     .posts {
         grid-template-columns: 1fr 1fr;
     }
 
+    /* First post spans 2 columns on tablet */
     .post:first-child {
-        grid-column: span 2; /* bài đầu full width */
+        grid-column: span 2;
     }
 }
+
+/* ==================== POSTS RESPONSIVE - MOBILE ==================== */
+
 @media (max-width: 640px) {
     .posts {
         grid-template-columns: 1fr;
     }
 
+    /* First post takes 1 column on mobile */
     .post:first-child {
         grid-column: span 1;
     }
 }
 
 
+/* ==================== WORKS/PORTFOLIO SECTION ==================== */
 
-/* ===== WORKS SECTION ===== */
+/* Works section header */
 .works {
     text-align: center;
-    margin-top: 80px;
+    margin-top: 5rem;
 }
 
 .works h2 {
-    font-size: 30px;
-    margin-bottom: 10px;
+    font-size: 1.875rem;
+    margin-bottom: 0.625rem;
 }
 
 .works .sub {
     color: #777;
-    margin-bottom: 50px;
+    margin-bottom: 3.125rem;
 }
 
-/* GRID */
+/* Portfolio grid - 3 columns on desktop */
 .work-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 1.875rem;
 }
 
-/* ITEM */
+/* Portfolio item with overflow hidden for smooth hover effect */
 .work-item {
     overflow: hidden;    
-    position: relative;   /* ⚠️ CÁI NÀY QUAN TRỌNG NHẤT */
+    position: relative;  
     border-radius: 3px;
 }
 
 .work-item img {
     width: 100%;
-    height: 230px;
+    height: 14.375rem;
     object-fit: cover;
     display: block;
     transition: transform 0.4s ease;
 }
+
+/* Overlay on hover with blue background */
+.work-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(39, 179, 218, 0.9);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    text-align: flex-end;
+    padding: 1.25rem;
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+/* Show overlay on item hover */
+.work-item:hover .work-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==================== WORKS RESPONSIVE - TABLET ==================== */
 
 @media (max-width: 1024px) {
     .work-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
-@media (max-width: 768px) {
+
+/* ==================== WORKS RESPONSIVE - MOBILE ==================== */
+
+@media (max-width: 760px) {
     .work-grid {
         grid-template-columns: 1fr;
     }
 
     .work-item img {
-        height: 200px;
+        height: 12.5rem;
     }
 }
 
-.work-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(39, 179, 218, 0.9); /* màu xanh giống hình */
-    color: white;
+/* ==================== PARTNERS SECTION ==================== */
 
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    align-items: start;
-
-    text-align: end;
-    padding: 20px;
-
-    opacity: 0;
-    transform: translateY(100%);
-}
-
-
-.work-item:hover .work-overlay {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
+/* Partners section header */
 .partners {
     text-align: center;
-    margin-top: 70px;
+    margin-top: 4.375rem;
 }
 
 .partners h3 {
-    font-size: 22px;
-    margin-bottom: 10px;
+    font-size: 1.375rem;
+    margin-bottom: 0.625rem;
 }
 
 .partners .sub {
     color: #777;
-    margin-bottom: 50px;
+    margin-bottom: 3.125rem;
 }
 
-/* GRID LOGOS */
+/* Partner logos grid - 5 columns on desktop */
 .partner-logos {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 40px;
+    gap: 2.5rem;
     align-items: center;
 }
 
+/* Logo item styling */
 .partner-logos .logo {
     background: #f5f5f5;
-    padding: 25px;
+    padding: 1.5625rem;
     border-radius: 3px;
     transition: 0.3s;
 }
 
 .partner-logos .logo img {
     width: 100%;
-    max-height: 45px;
+    max-height: 2.8125rem;
     object-fit: contain;
     opacity: 0.7;
     transition: 0.3s;
 }
 
+/* ==================== PARTNERS RESPONSIVE - TABLET ==================== */
 
+@media (max-width: 1024px) {
+    .partner-logos {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ==================== PARTNERS RESPONSIVE - MOBILE ==================== */
+
+@media (max-width: 760px) {
+    .partners {
+        display: none;
+    }
+}
+
+/* ==================== FOOTER SECTION ==================== */
+
+/* Main footer container with dark background */
+.footer {
+    background: #0d2d46;
+    color: #c9d6df;
+    margin-top: 3.75rem;
+    padding-top: 3.75rem;
+}
+
+/* Colored bottom bar in 4 colors */
+.footer-container::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 0.5rem;
+    display: block;
+    background: linear-gradient(
+        to right,
+        #27ae60 0% 25%,
+        #f1c40f 25% 50%,
+        #e67e22 50% 75%,
+        #3498db 75% 100%
+    );
+}
+
+/* Top footer row with avatar and description */
+.footer-top {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    color: #fff;
+}
+
+/* Yellow underline beneath text */
+.footer-top p::after {
+    content: "";
+    position: absolute;
+    bottom: -1.5625rem;
+    left: 0;
+    width: 7.5rem;
+    height: 0.1875rem;
+    background: #f1c40f;
+}
+
+.footer-top p {
+    position: relative;
+    width: 60%;
+}
+
+/* Avatar image - circular */
+.footer-top .avatar {
+    width: 8.125rem;
+    height: 8.125rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Main footer grid layout */
+.footer-container {
+    display: flex;
+    gap: 3.125rem;
+    flex-wrap: wrap;
+    position: relative;
+    padding-bottom: 3.75rem !important;
+    margin-top: 3.75rem;
+}
+
+/* Individual footer column */
+.footer-col {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+/* Highlight color in footer columns */
+.footer-col span {
+    color: #19B2DE;
+}
+
+/* Column heading styling */
+.footer-col h4 {
+    position: relative;
+    font-size: 1.125rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.625rem;
+    display: inline-block;
+}
+
+/* Horizontal line under heading */
+.footer-col h4::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: calc(100% + 3.125rem);
+    height: 1px;
+}
+
+/* Triangle indicator below heading */
+.footer-col h4::before {
+    content: "";
+    position: absolute;
+    bottom: -0.375rem;
+    left: 1.125rem;
+    border-left: 0.375rem solid transparent;
+    border-right: 0.375rem solid transparent;
+}
+
+/* Instagram grid - 3 columns */
+.insta-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+}
+
+.insta-grid img {
+    width: 4rem;
+}
+
+/* Column width distribution */
+.footer-col:nth-child(1) { flex-grow: 1; }     /* About Us */
+.footer-col:nth-child(2) { flex-grow: 0.8; }   /* Instagram */
+.footer-col:nth-child(3) { flex-grow: 2.0; }   /* Mastodon */
+.footer-col:nth-child(4) { flex-grow: 0.5; }   /* Track us */
+
+/* ==================== FOOTER COLUMN COLORS ==================== */
+
+/* About column - Yellow heading */
+.footer-col.about h4 { color: #FFB901; }
+.footer-col.about h4::after { background: #21C183; }
+.footer-col.about h4::before { border-top: 6px solid #21C183; }
+
+/* Instagram column - Red heading */
+.footer-col.insta h4 { color: #DE6262; }
+.footer-col.insta h4::after { background: #19B2DE; }
+.footer-col.insta h4::before { border-top: 6px solid #19B2DE; }
+
+/* Mastodon column - Blue heading */
+.footer-col.mastodon h4 { color: #19B2DE; }
+.footer-col.mastodon h4::after { background: #FFB901; }
+.footer-col.mastodon h4::before { border-top: 6px solid #FFB901; }
+
+/* Track column - White heading */
+.footer-col.track h4 { color: #ffffff; }
+.footer-col.track h4::after { background: #19B2DE; }
+.footer-col.track h4::before { border-top: 6px solid #19B2DE; }
+
+/* Track column specific styling */
+.footer-col.track {
+    color: white;
+}
+
+/* ==================== SOCIAL BOXES ==================== */
+
+/* Social media icon boxes container */
+.social-boxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.625rem;
+    margin: 0.9375rem 0 1.25rem;
+}
+
+/* Individual social box */
+.social-boxes .s {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 2px;
+}
+
+/* Social box colors */
+.s1 { background: #527CC4; }   /* Blue */
+.s2 { background: #E46145; }   /* Red-orange */
+.s3 { background: #00B0E2; }   /* Cyan */
+.s4 { background: #F6679C; }   /* Pink */
+.s5 { background: #FFB901; }   /* Yellow */
+
+/* ==================== SUBSCRIBE FORM ==================== */
+
+/* Email subscription form */
+.subscribe-form {
+    display: flex;
+    height: 2.75rem;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+/* Input field styling */
+.subscribe-form input {
+    flex: 1;
+    border: none;
+    padding: 0 0.875rem;
+    background: #DE6262;
+    color: white;
+    font-size: 0.875rem;
+    outline: none;
+}
+
+.subscribe-form input::placeholder {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Submit button */
+.subscribe-form button {
+    border: none; 
+    padding: 0.9375rem;
+    background: #FFB901;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subscribe-form button img {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* ==================== FOOTER RESPONSIVE - TABLET ==================== */
+
+@media (max-width: 1024px) {
+    .footer-col {
+        flex: 0 0 calc(50% - 25px);
+    }
+}
+
+/* ==================== FOOTER RESPONSIVE - MOBILE ==================== */
+
+@media (max-width: 760px) {
+    .footer-col {
+        flex: 0 0 100%;
+    }
+
+    /* Full-width colored bar on mobile */
+    .footer-container::after {
+        width: 100%;
+    }
+
+    .footer-container {
+        flex-direction: column-reverse;
+        padding: 3.75rem 0;
+    }
+
+    /* Track section positioning on mobile */
+    .footer-col.track {
+        margin-left: 8.125rem;
+        padding: 0 1.25rem;
+    }
+
+    /* Hide Instagram section on mobile */
+    .footer-col.insta {
+        display: none;
+    }
+
+    /* Hide About section on mobile */
+    .footer-col.about {
+        display: none;
+    }
+}
